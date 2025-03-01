@@ -1,0 +1,19 @@
+package com.moviebooking.service;
+
+import com.moviebooking.model.Booking;
+import com.moviebooking.model.BookingRequest;
+import com.moviebooking.repository.BookingRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class BookingService {
+    @Autowired
+    private BookingRepository bookingRepository;
+
+    public boolean bookTicket(BookingRequest request) {
+        Booking booking = new Booking(null, request.getTheatreId(), request.getUserName(), request.getSeats());
+        bookingRepository.save(booking);
+        return true;
+    }
+}
