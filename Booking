@@ -1,0 +1,32 @@
+package com.moviebooking.model;
+
+import javax.persistence.*;
+
+@Entity
+public class Booking {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private Long theatreId;
+    private String userName;
+    private int seats;
+
+    public Booking(Long id, Long theatreId, String userName, int seats) {
+        this.id = id;
+        this.theatreId = theatreId;
+        this.userName = userName;
+        this.seats = seats;
+    }
+    
+    public Booking() {}
+
+    // Getters and Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public Long getTheatreId() { return theatreId; }
+    public void setTheatreId(Long theatreId) { this.theatreId = theatreId; }
+    public String getUserName() { return userName; }
+    public void setUserName(String userName) { this.userName = userName; }
+    public int getSeats() { return seats; }
+    public void setSeats(int seats) { this.seats = seats; }
+}
