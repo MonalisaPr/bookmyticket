@@ -1,0 +1,23 @@
+package com.moviebooking.controller;
+
+import com.moviebooking.service.BookingService;
+import com.moviebooking.model.Booking;
+import com.moviebooking.model.BookingRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/bookings")
+public class BookingController {
+    @Autowired
+    private BookingService bookingService;
+
+    @PostMapping
+    public ResponseEntity<String> bookTicket(@RequestBody BookingRequest request) {
+        return bookingService.bookTicket(request)
+                ? ResponseEntity.ok("Booking successful!")
+                : ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Booking failed.");
+    }
+}
