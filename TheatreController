@@ -1,0 +1,20 @@
+package com.moviebooking.controller;
+
+import com.moviebooking.service.TheatreService;
+import com.moviebooking.model.Theatre;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/theatres")
+public class TheatreController {
+    @Autowired
+    private TheatreService theatreService;
+
+    @GetMapping("/{city}/{movie}")
+    public ResponseEntity<List<Theatre>> getTheatres(@PathVariable String city, @PathVariable String movie) {
+        return ResponseEntity.ok(theatreService.findTheatres(city, movie));
+    }
+}
