@@ -1,0 +1,15 @@
+package com.moviebooking.dto;
+
+public class BookingRequest {
+    private Long theatreId;
+    private String userName;
+    private int seats;
+
+    // Getters and Setters
+    public Long getTheatreId() { return theatreId; }
+    public void setTheatreId(Long theatreId) { this.theatreId = theatreId; }
+    public String getUserName() { return userName; }
+    public void setUserName(String userName) { this.userName = userName; }
+    public int getSeats() { return seats; }
+    public void setSeats(int seats) { this.seats = seats; }
+}
